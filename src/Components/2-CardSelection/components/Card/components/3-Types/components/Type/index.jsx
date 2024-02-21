@@ -1,4 +1,4 @@
-import { typeColors } from "../../../../../../../Setup"
+import { typeColors } from "../../../../../../../1-Setup"
 
 function Type({type}) {
   return (

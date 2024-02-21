@@ -1,6 +1,5 @@
 
-import { statsColors } from "../../../../../Setup";
-
+import { statsColors } from "../../../../../1-Setup"
 function index({stats}) {
   return (
     <div className=" flex p-1 gap-1">

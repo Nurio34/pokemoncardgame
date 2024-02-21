@@ -1,4 +1,4 @@
-import CardSelection from "./PokemonAPI/CardSelection"
+import CardSelection from "./Components/2-CardSelection"
 
 function App() {
 
