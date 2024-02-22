@@ -1,7 +1,8 @@
 
-import { statsColors } from "../../../../../1-Setup"
+import { statsColors } from "../../../../../99-Setup"
 function index({stats}) {
-  return (
+
+    return (
     <div className=" flex p-1 gap-1">
             <p
                 className=" text-white px-1"
@@ -9,10 +10,7 @@ function index({stats}) {
                     backgroundColor: `${statsColors["hp"]}`,
                 }}
             >
-                {stats.map((item) => {
-                    if (item.stat.name === "hp")
-                        return item.base_stat;
-                })}
+                {stats.hp}
             </p>
             <p
                 className=" text-white px-1"
@@ -20,10 +18,7 @@ function index({stats}) {
                     backgroundColor: `${statsColors["attack"]}`,
                 }}
             >
-                {stats.map((item) => {
-                    if (item.stat.name === "attack")
-                        return item.base_stat;
-                })}
+                {stats.attack}
             </p>
             <p
                 className=" text-white px-1"
@@ -31,10 +26,7 @@ function index({stats}) {
                     backgroundColor: `${statsColors["defense"]}`,
                 }}
             >
-                {stats.map((item) => {
-                    if (item.stat.name === "defense")
-                        return item.base_stat;
-                })}
+                {stats.defense}
             </p>
         </div>
   )

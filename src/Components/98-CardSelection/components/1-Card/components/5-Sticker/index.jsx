@@ -1,7 +1,7 @@
 import React from 'react'
-import { Category_Colors } from '../../../../../1-Setup'
+import { Category_Colors } from '../../../../../99-Setup'
 
-export default function index({name,category}) {
+export default function index({name, category, in_Team}) {
 
   return (
     <div>
@@ -14,7 +14,8 @@ export default function index({name,category}) {
                 }
             }
             >
-              {category() !== "common" && <p className=' rotate-45'>{category()}</p>}
+              {!in_Team && category() !== "common" && <p className=' rotate-45'>{category()}</p>}
+              {in_Team && <p className=' rotate-45'>team</p>}
             </div>
           }
     </div>
