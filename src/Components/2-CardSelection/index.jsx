@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import "./styles/index.css"
+import { Pokemons } from "../../Components/1-Setup";
 import Card from "./components/Card"
 
-function PokemonAPI({ project, currentProject }) {
-    const [pokedex, setPokedex] = useState([]);
-   
+function index({add_To_Team}) {
 
-    //! UNCOMMENT CODES BELOW TO RUN THİS APP
+    const [pokedex, setPokedex] = useState([]);
+    const [all_Pokemons,setAll_Pokemons] = useState(()=>{
+        return Object.values(Pokemons).map(item=>item.Pokemons).flat()
+    })
+
     useEffect(() => {
         const getData = async (id) => {
             const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
@@ -21,20 +24,16 @@ function PokemonAPI({ project, currentProject }) {
 
     return (
         <div
-            className="grid-cols-3 justify-center items-center  gap-4 p-4"
-            style={{
-                display: project === currentProject ? "grid" : "none",
-            }}
+            className="grid grid-cols-3 justify-center items-center  gap-4 p-4"
         >
             {pokedex
                 .sort((a, b) => a.id - b.id)
                 .map((pokemon) => {
                     // console.log(pokemon);
-                    //!! SADECE EVRİMLEŞMEMİŞ POKEMONLARI GÖSTERMEK İÇİN if(pokemon.base_experience < 72)
-                    return <Card key={pokemon.id} pokemon={pokemon} />
+                    return <Card key={pokemon.id} all_Pokemons={all_Pokemons} pokemon={pokemon} add_To_Team={add_To_Team} />
                 })}
         </div>
     );
 }
 
-export default PokemonAPI;
+export default index;

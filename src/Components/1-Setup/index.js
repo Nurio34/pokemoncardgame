@@ -1,3 +1,4 @@
+
 export const typeColors = {
     bug: "#A8B820",
     poison: "#A040A0",
@@ -17,34 +18,112 @@ export const typeColors = {
     ghost: "#705898",
     dragon: "#7038F8",
 };
+
 export const statsColors = {
     hp: " #008000",
     attack: "#FF0000",
     defense: "#FFA500",
 };
 
-export const Max_Exp = 2000
+export const Pokemons = {
 
-export const Non_Evolved_Pokemons = [
-    "bulbasaur", "charmander", "charmander", "caterpie","weedle","pidgey","rattata","spearow","ekans","pikachu",
-    "sandshrew","nidoran-f","nidoran,m","clefairy", "jigglypuff", "zubat","oddish","paras","venonat","diglett",
-    "meowth","psyduck","mankey","growlithe","poliwag","abra","machop","bellsprout","tentacool","geodude","ponyta",
-    "slowpoke","magnemite", "farfetchd", "doduo","seel","grimer","shellder","gastly","onix","krabby","voltorb",
-    "exeggcute","cubone","hitmonlee","hitmonchan","lickitung","koffing","rhyhorn","chansey","tangela","kangaskhan",
-    "horsea", "goldeen","staryu","mr-mime","scyther","jynx","electabuzz","magmar","pinsir","tauros","magikarp",
-    "lapras","ditto","eevee","porygon","omanyte","kabuto","aerodactyl","snorlax","articuno","zapdos","moltres",
-    "dratini","mewtwo", "mew"
-]
+    Common_Pokemons : {
+        Category : "common",
+        Pokemons: [
+            "bulbasaur", "charmander", "squirtle", "caterpie","weedle","pidgey","rattata","spearow","ekans",
+            "sandshrew","nidoran-f","nidoran-m", "zubat","oddish","paras","venonat","diglett","meowth","bellsprout",
+            "tentacool","geodude","magnemite","doduo","seel","grimer","shellder","krabby","voltorb","exeggcute",
+            "cubone","koffing","chansey","tangela","horsea", "goldeen","staryu"
+        ]
+    },
+    
+    Rare_Pokemons : {
+        Category : "rare",
+        Pokemons : [
+            "vulpix","venonat","meowth","mankey","growlithe","geodude","eevee", "clefairy","jigglypuff","poliwag",
+            "machop","ponyta","slowpoke","farfetchd","onix","hitmonchan","hitmonlee","lickitung","chansey","tangela",
+            "kangaskhan","mr-mime","scyther","jynx","electabuzz","magmar","pinsir","tauros","lapras","porygon",
+            "snorlax",
+            ]
+        },
+        
+    Epic_Pokemons : {
+        Category : "epic",
+        Pokemons : [  
+            "gastly","rhyhorn","magikarp","ditto","omanyte","kabuto","aerodactyle","psyduck","abra","drowzee",
+            "omanyte","kabuto","ditto"
+        ]
+    },
+    
+    Legendary_Pokemons :  {
+        Category : "legendary",
+        Pokemons : [
+            "articuno","zapdos","moltres","dratini","magikarp"
+        ]
+    },
+    
+    Mythical_Pokemons : {
+        Category : "mythical",
+        Pokemons : [ 
+            "mewtwo"
+        ]
+    },
+    
+    Divine_Pokemons : {
+        Category : "divine",
+        Pokemons : [ 
+            "mew"
+        ]
+    },
+    
+    
+    Eternal_Pokemons : {
+        Category : "eternal",
+        Pokemons :  [ 
+            "pikachu"
+        ]
+    }
+}
 
-export const Rare_Pokemons = [
-    "vulpix", "venonat", "meowth", "psyduck", "mankey", "growlithe", "abra", "geodude",
-    "gastly", "drowzee", "rhyhorn", "magikarp", "eevee", "omanyte", "kabuto", "dratini",
-    "pikachu", "clefairy", "jigglypuff","poliwag","machop", "ponyta", "slowpoke", "farfetchd",
-    "onix","hitmonchan","hitmonlee","lickitung","chansey","tangela","kangaskhan","mr-mime",
-    "scyther","jynx","electabuzz","magmar","pinsir","tauros","lapras","ditto","porygon","aerodactyl",
-    "snorlax",
-]
+export const Category_Colors = {
 
-export const Legendary_Pokemons = [
-    "articuno","zapdos","moltres","mewtwo","mew"
-]
+    common: { 
+        textClr: "rgb(0, 0, 0)",
+        bgClr: "rgba(0, 0, 0, 0)"
+    },// black text, light gray background
+
+    rare: { 
+        textClr: "rgb(255, 255, 255)",
+        bgClr: "rgba(0, 0, 255, 0.5)"
+    },// white text, blue background
+
+    epic: { 
+        textClr: "rgb(255, 255, 255)",
+        bgClr: "rgba(128, 0, 128, 0.5)"
+    },// white text, purple background
+
+    legendary: { 
+        textClr: "rgb(255, 0, 0)",
+        bgClr: "rgba(255, 215, 0, 0.5)"
+    },// white text, gold background
+
+    mythical: { 
+        textClr: "rgb(255, 255, 255)",
+        bgClr: "rgba(139, 0, 0, 0.5)"
+    },// white text, dark red background
+
+    divine: { 
+        textClr: "rgb(255, 255, 255)",
+        bgClr: "rgba(255, 140, 0, 0.5)"
+    },// white text, dark orange background
+
+    eternal: { 
+        textClr: "rgb(0, 0, 0)",
+        bgClr: "rgba(144, 238, 144, 0.5)"
+    } // black text, light green background
+
+  };
+  
+
+
+            
