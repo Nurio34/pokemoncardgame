@@ -1,0 +1,57 @@
+
+.logo {
+    -webkit-mask-image: url("../../../../../assets/logo.png");
+    mask-image: url("../../../../../assets/logo.png");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat; 
+    mask-size: contain;
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 0;
+    width: 10%; height: 200%;
+    background-color: red;
+    animation: move 4s ease-in-out 0s infinite forwards;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(-1000%,-50%) rotate(35deg);
+
+    }
+    50% {
+        transform: translate(1000%,-50%) rotate(35deg);
+    }
+    100% {
+        transform: translate(1000%,-50%) rotate(35deg);
+    }
+}
+
+.front {
+    background-image: url("../../../../../assets//logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.btn {
+    animation: big 4s ease-in-out 0s infinite forwards;
+}
+
+@keyframes big {
+
+    50% {
+        background-color: red;
+    }
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: white;
+    animation: move 4s ease-in-out 0s infinite forwards;
+
+}

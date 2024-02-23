@@ -39,7 +39,6 @@ function index({not_Evolved_Pokemons, pokemon, add_To_Team}) {
     })
     const {id,name,types,stats,gifs,category,in_Team} = pokemonCard
 
-    console.log(gifs);
   return (
     <>
     {not_Evolved_Pokemons.includes(name) &&(

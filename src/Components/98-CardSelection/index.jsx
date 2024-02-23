@@ -4,24 +4,24 @@ import { Pokemons } from "../../Components/99-Setup";
 import Card from "./components/1-Card"
 import Deck from "./components/2-Deck"
 
-function index({myTeam, add_To_Team}) {
+function index({pokedex,myTeam, add_To_Team}) {
 
-    const [pokedex, setPokedex] = useState([]);
+    // const [pokedex, setPokedex] = useState([]);
     const [not_Evolved_Pokemons,setNot_Evolved_Pokemons] = useState(()=>{
         return Object.values(Pokemons).map(item=>item.Pokemons).flat()
     })
 
-    useEffect(() => {
-        const getData = async (id) => {
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
-            const data = await res.json();
-            setPokedex((preState) => {
-                return [...preState, data];
-            });
-        };
-        const total = Array(151).fill("p");
-        total.forEach((item, index) => getData(index + 1));
-    }, []);
+    // useEffect(() => {
+    //     const getData = async (id) => {
+    //         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+    //         const data = await res.json();
+    //         setPokedex((preState) => {
+    //             return [...preState, data];
+    //         });
+    //     };
+    //     const total = Array(151).fill("p");
+    //     total.forEach((item, index) => getData(index + 1));
+    // }, []);
 
     return (
         <div

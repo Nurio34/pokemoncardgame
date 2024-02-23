@@ -1,10 +1,16 @@
 
-import LoadingBg from "../../assets/LoadingBg_638_1134.jpg"
+import Video1 from "../../../../../static/video1.mp4"
+import LoadingSection from "./components/LoadingSection"
+import VideoSection from "./components/VideoSection"
 
-function index({adjustLoading}) {
+function index({adjustLoading, progressValue}) {
+
+
+
   return (
     <div onClick={adjustLoading}>
-        <img src={LoadingBg} alt="" />
+        <LoadingSection progressValue={progressValue} />
+        {/* <VideoSection /> */}
     </div>
   )
 }
