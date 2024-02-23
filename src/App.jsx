@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react"
+import TransitionScreen from "./Components/1-TransitionScreen"
 import LoadingScreen from "./Components/1-LoadingScreen"
+import HomeScreen from "./Components/3-HomeScreen"
 import CardSelection from "./Components/98-CardSelection"
-import { data } from "autoprefixer";
 
 function App() {
 
-  const [is_Loading, setIs_Loading] = useState(true)
   const [pokedex, setPokedex] = useState([]);
   const [progressValue,setProgressValue] = useState(0)
-  const [myTeam, setMyTeam] = useState([])
+  const [is_Loading, setIs_Loading] = useState(true)
+  const [is_Started, setIs_Started] = useState(false)
+  const [transition, setTransition] = useState(false)
+  const [is_arrangeTeamMenu,setIs_arrangeTeamMenu] = useState(false)
 
-  //! isLoading State //
-  const adjustLoading = () => {
-    return setIs_Loading(preState=>{
-      return !preState
-    })
-  }
+  const [myTeam, setMyTeam] = useState([])
 
   //! pokedex State //
   useEffect(() => {
@@ -25,6 +23,7 @@ function App() {
       return `https://pokeapi.co/api/v2/pokemon/${index + 1}/`
     })
 
+    //TODO progressValue State //
     const fetchWithProgress = (url) => {
       return fetch(url)
           .then(response => {
@@ -44,26 +43,61 @@ function App() {
     .then(dataArray => {
         // All requests completed successfully
         setPokedex(dataArray)
-        console.log('All requests completed successfully:', dataArray);
     })
     .catch(error => {
         // Handle errors from any of the requests
         console.error('Error:', error);
     });
-
-    // const getData = async (id) => {
-    //     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
-    //     const data = await res.json();
-    //     setPokedex((preState) => {
-    //         return [...preState, data];
-    //     });
-    // };
-    // total.forEach((item, index) => getData(index + 1));
   }, []);
 
+  
+  //! isLoading State //
   useEffect(()=>{
-    console.log(progressValue);
-  },[progressValue])
+    if(is_Loading){
+      return setIs_Loading(preState=>{
+        return !preState
+      })
+    }
+  },[pokedex])
+
+  //! isStarted State //
+  const handleIsStarted = () => {
+    
+    return setTimeout(() => {
+      setIs_Started(preState=>{
+        return !preState
+      })
+    }, 2000);
+  }
+
+  //! transition State //
+
+  const handleTransition = () => {
+    return setTransition(preState=>{
+      return !preState
+    })
+  }
+
+  useEffect(()=>{
+    if(transition) {
+      const timer = setTimeout(() => {
+        handleTransition()
+      }, 4000);
+  
+      return () => clearInterval(timer)
+    }
+    
+  },[transition])
+
+  //! is_arrangeTeamMenu State //
+  const handleisArrangeTeamMenu = () => {
+    return setTimeout(() => {
+      setIs_arrangeTeamMenu(preState=>{
+        return !preState
+      })
+    }, 2000);
+  }
+
 
   //!myTeam State //
   const add_To_Team = ( card ) => {
@@ -90,9 +124,11 @@ function App() {
   },[myTeam])
 
   return (
-    <div >      
-      {is_Loading && <LoadingScreen adjustLoading={adjustLoading} progressValue={progressValue} />}
-      {!is_Loading && <CardSelection pokedex={pokedex} myTeam={myTeam} add_To_Team={add_To_Team} />}
+    <div className=" overflow-hidden">   
+      <TransitionScreen transition={transition} />
+      {!is_Started && <LoadingScreen progressValue={progressValue} is_Loading={is_Loading} handleIsStarted={handleIsStarted} handleTransition={handleTransition} />}
+      {is_Started && !is_arrangeTeamMenu && <HomeScreen handleTransition={handleTransition} handleisArrangeTeamMenu={handleisArrangeTeamMenu}  />}
+      {is_arrangeTeamMenu && <CardSelection pokedex={pokedex} myTeam={myTeam} add_To_Team={add_To_Team} />}
     </div>
   )
 }

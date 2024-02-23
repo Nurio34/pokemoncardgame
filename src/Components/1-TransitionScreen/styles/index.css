@@ -1,0 +1,10 @@
+
+.transScreen {
+    animation: trans 4s ease-in-out forwards;
+}
+
+@keyframes trans {
+    50% {
+        background-color: black;
+    }
+}
