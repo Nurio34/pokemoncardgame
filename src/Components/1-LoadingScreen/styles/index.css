@@ -1,7 +1,7 @@
 
 .logo {
-    -webkit-mask-image: url("../../../assets/logo.png");
-    mask-image: url("../../../assets/logo.png");
+    -webkit-mask-image: url("../../../assets/Logo_Back.png");
+    mask-image: url("../../../assets/Logo_Back.png");
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat; 
     mask-size: contain;
@@ -30,7 +30,7 @@
 }
 
 .front {
-    background-image: url("../../../assets/logo.png");
+    background-image: url("../../../assets/Logo_Back.png");
     background-repeat: no-repeat;
     background-size: contain;
 }

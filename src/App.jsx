@@ -8,7 +8,7 @@ function App() {
 
   const [pokedex, setPokedex] = useState([]);
   const [progressValue,setProgressValue] = useState(0)
-  const [is_Loading, setIs_Loading] = useState(true)
+  const [is_Loading, setIs_Loading] = useState(false)
   const [is_Started, setIs_Started] = useState(false)
   const [transition, setTransition] = useState(false)
   const [is_arrangeTeamMenu,setIs_arrangeTeamMenu] = useState(false)
@@ -53,10 +53,10 @@ function App() {
   
   //! isLoading State //
   useEffect(()=>{
-    if(is_Loading){
-      return setIs_Loading(preState=>{
-        return !preState
-      })
+    if(pokedex){
+        return setIs_Loading(preState=>{
+          return !preState
+        })
     }
   },[pokedex])
 
@@ -119,8 +119,11 @@ function App() {
   }
 
   useEffect(()=>{
-    console.log(myTeam);
+    if(myTeam.length > 0){
+      console.log(myTeam);
     console.log("Your Team is above");
+    return
+    }
   },[myTeam])
 
   return (
